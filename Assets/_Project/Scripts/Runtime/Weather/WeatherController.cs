@@ -14,11 +14,16 @@ namespace Test.Core
 
         private CancellationTokenSource _currentRequestCts;
         private bool _isActive;
+        private bool _isFirstEnable = true;
 
         private void OnEnable()
         {
             _isActive = true;
-            _view.ShowLoading();
+            
+            if (_isFirstEnable)
+                _view.ShowLoading();
+            
+            _isFirstEnable = false;
             LoopRequests().Forget();
         }
 

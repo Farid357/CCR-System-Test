@@ -12,6 +12,7 @@ namespace Test.Core
         
         public void ShowWeather(WeatherData data)
         {
+            _icon.gameObject.SetActive(true);
             _text.text = $"Today - {data.Temperature}F";
             _icon.sprite = data.Icon;
         }
