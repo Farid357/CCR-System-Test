@@ -6,9 +6,8 @@ namespace Test.Core
 {
     public class EnergyIncreaseTimer : MonoBehaviour
     {
-        [SerializeField] private float _timeToAddEnergy = 10f;
-        [SerializeField] private int _addEnergy = 10;
-      
+        [SerializeField] private EnergyConfig _energyConfig;
+        
         private IEnergy _energy;
         private float _time;
 
@@ -22,7 +21,7 @@ namespace Test.Core
         {
             _time += Time.unscaledDeltaTime;
 
-            if (_time >= _timeToAddEnergy)
+            if (_time >= _energyConfig.TimeToAddEnergy)
             {
                 _time = 0f;
                 IncreaseEnergy();
@@ -31,7 +30,7 @@ namespace Test.Core
 
         private void IncreaseEnergy()
         {
-            _energy.Increase(_addEnergy);
+            _energy.Increase(_energyConfig.AddEnergyCount);
         }
     }
 }

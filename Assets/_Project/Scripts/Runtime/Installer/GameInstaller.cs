@@ -9,18 +9,18 @@ namespace Test.Core
         [SerializeField] private WalletView _walletView;
         [SerializeField] private ClickerView _clickerView;
         [SerializeField] private EnergyView _energyView;
-        [SerializeField] private EnergyViewConfig _energyViewConfig;
+        [SerializeField] private EnergyConfig _energyConfig;
 
         public override void InstallBindings()
         {
             DOTween.Init();
             
             IWallet wallet = new Wallet(0);
-            IEnergy energy = new Energy(1000);
+            IEnergy energy = new Energy(_energyConfig.MaxValue);
             Clicker clicker = new Clicker(wallet, energy);
 
             var walletPresenter = new WalletPresenter(wallet, _walletView);
-            var energyPresenter = new EnergyPresenter(energy, _energyView, _energyViewConfig);
+            var energyPresenter = new EnergyPresenter(energy, _energyView, _energyConfig);
             var clickerPresenter = new ClickerPresenter(clicker, _clickerView);
             
             Container.BindInterfacesTo<WalletPresenter>().FromInstance(walletPresenter).AsSingle();

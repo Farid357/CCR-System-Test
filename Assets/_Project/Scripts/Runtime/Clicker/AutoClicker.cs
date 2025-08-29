@@ -5,8 +5,8 @@ using Zenject;
 namespace Test.Core
 {
     public class AutoClicker : MonoBehaviour
-    { 
-        [SerializeField] private float _timeToAutoClick = 3f;
+    {
+        [SerializeField] private ClickerConfig _config;
         
         private IReadOnlyEnergy _energy;
         private ClickerPresenter _clicker;
@@ -23,7 +23,7 @@ namespace Test.Core
         {
             _timer += Time.unscaledDeltaTime;
 
-            if (_timer >= _timeToAutoClick)
+            if (_timer >= _config.TimeToAutoClick)
             {
                 _timer = 0f;
 

@@ -10,14 +10,14 @@ namespace Test.Core
     {
         private readonly IEnergy _energy;
         private readonly EnergyView _energyView;
-        private readonly EnergyViewConfig _energyViewConfig;
+        private readonly EnergyConfig _energyConfig;
         private readonly CompositeDisposable _disposables = new();
 
-        public EnergyPresenter(IEnergy energy, EnergyView energyView, EnergyViewConfig energyViewConfig)
+        public EnergyPresenter(IEnergy energy, EnergyView energyView, EnergyConfig energyConfig)
         {
             _energy = energy ?? throw new ArgumentNullException(nameof(energy));
             _energyView = energyView ?? throw new ArgumentNullException(nameof(energyView));
-            _energyViewConfig = energyViewConfig;
+            _energyConfig = energyConfig;
         }
 
         public void Initialize()
@@ -35,13 +35,13 @@ namespace Test.Core
         
         private Color GetColorFromValue(int value)
         {
-            foreach (var entry in _energyViewConfig.SortedEnergyColors.Reverse())
+            foreach (var entry in _energyConfig.SortedEnergyColors.Reverse())
             {
                 if (value >= entry.Threshold)
                     return entry.Color;
             }
 
-            throw new ArgumentException($"Invalid value for config! {_energyViewConfig.name}");
+            throw new ArgumentException($"Invalid value for config! {_energyConfig.name}");
         }
         
         public void Dispose()
