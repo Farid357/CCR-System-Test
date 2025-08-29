@@ -10,6 +10,7 @@ namespace Test.Core
         [SerializeField] private ClickerView _clickerView;
         [SerializeField] private EnergyView _energyView;
         [SerializeField] private EnergyConfig _energyConfig;
+        [SerializeField] private CoinsViewFactory _coinsViewFactory;
 
         public override void InstallBindings()
         {
@@ -19,7 +20,7 @@ namespace Test.Core
             IEnergy energy = new Energy(_energyConfig.MaxValue);
             Clicker clicker = new Clicker(wallet, energy);
 
-            var walletPresenter = new WalletPresenter(wallet, _walletView);
+            var walletPresenter = new WalletPresenter(wallet, _walletView, _coinsViewFactory);
             var energyPresenter = new EnergyPresenter(energy, _energyView, _energyConfig);
             var clickerPresenter = new ClickerPresenter(clicker, _clickerView);
             

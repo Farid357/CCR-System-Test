@@ -10,7 +10,7 @@ namespace Test.Core
     {
         [SerializeField] private CoinViewConfig _config;
         
-        public async UniTaskVoid MoveTo(Image coinImage, ObjectPool<CoinView> pool)
+        public async UniTask MoveTo(Image coinImage, ObjectPool<CoinView> pool)
         {
             await transform.DOMove(coinImage.transform.position, _config.TimeToReachCoinIcon).SetEase(_config.Ease).SetUpdate(true).AsyncWaitForCompletion().AsUniTask();
             gameObject.SetActive(false);
