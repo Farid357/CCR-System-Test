@@ -19,7 +19,7 @@ namespace Test.Core
             _view.Button.onClick.AddListener(Click);
         }
 
-        private void Click()
+        public void Click()
         {
             _view.PlayEffect();
             _view.PlayVFX();

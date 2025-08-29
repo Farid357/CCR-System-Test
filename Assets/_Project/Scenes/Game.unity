@@ -5077,6 +5077,8 @@ GameObject:
   m_Component:
   - component: {fileID: 313246299}
   - component: {fileID: 313246300}
+  - component: {fileID: 313246302}
+  - component: {fileID: 313246301}
   m_Layer: 0
   m_Name: Game Installer
   m_TagString: Untagged
@@ -5113,6 +5115,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _walletView: {fileID: 2038330718}
   _clickerView: {fileID: 2060140669}
+  _energyView: {fileID: 1236590972}
+  _energyViewConfig: {fileID: 11400000, guid: 0b1d4efbaee329b4dbafe53cd7816e1f, type: 2}
+--- !u!114 &313246301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313246298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b97fe12e924a2ea38f0aaf5d797c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToAddEnergy: 10
+  _addEnergy: 10
+--- !u!114 &313246302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313246298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f20f58a46140bc8f359f183ca4c25d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToAutoClick: 3
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -5425,7 +5456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 1000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -5992,6 +6023,7 @@ GameObject:
   - component: {fileID: 1236590971}
   - component: {fileID: 1236590970}
   - component: {fileID: 1236590969}
+  - component: {fileID: 1236590972}
   m_Layer: 5
   m_Name: EnergyBackground
   m_TagString: Untagged
@@ -6073,6 +6105,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236590967}
   m_CullTransparentMesh: 1
+--- !u!114 &1236590972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236590967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae26d56031534ef0815178ed197ea0ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _energyText: {fileID: 458883200}
 --- !u!1 &1320890240
 GameObject:
   m_ObjectHideFlags: 0
@@ -6130,7 +6175,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
